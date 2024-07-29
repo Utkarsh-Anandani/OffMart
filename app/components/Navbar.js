@@ -12,7 +12,7 @@ const Navbar = () => {
         <button className='bg-white h-[30px] px-2 py-1 rounded-s-full'><CiSearch/></button>
         <input className='h-[30px] w-2/3 rounded-e-full focus:border focus:border-black foc' type="text" />
       </div>
-      <div className='w-[22vw]'>
+      <div className='w-[33vw]'>
         profile
       </div>
     </div>
