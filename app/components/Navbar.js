@@ -13,7 +13,7 @@ const Navbar = () => {
         <input type="text" />
       </div>
       <div className='w-[33vw]'>
-        profile
+        Profile
       </div>
     </div>
   )
