@@ -1,13 +1,18 @@
+import React from 'react'
+import Card from '../components/Card'
 import Navbar from '../components/Navbar'
 import QRScanner from '../components/QRScanner'
 
-const page = () => {
+function page() {
   return (
     <main>
-        <Navbar/>
-        <QRScanner/>
+        {/* <Navbar/>
+        <QRScanner/> */}
+        <Card/>
     </main>
   )
 }
 
 export default page
+
+
