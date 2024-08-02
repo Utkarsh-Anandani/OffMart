@@ -6,8 +6,8 @@ import QRScanner from '../components/QRScanner'
 function page() {
   return (
     <main>
-        {/* <Navbar/>
-        <QRScanner/> */}
+        <Navbar/>
+        <QRScanner/>
         <Card/>
     </main>
   )
