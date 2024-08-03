@@ -8,7 +8,7 @@ function page() {
     <main>
         <Navbar/>
         <QRScanner/>
-        <Card/>
+        
     </main>
   )
 }
