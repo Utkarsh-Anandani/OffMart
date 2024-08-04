@@ -1,9 +1,16 @@
 import React from 'react'
+import Link from 'next/link';
+import { useNavigate } from 'react-router-dom';
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { FaOpencart } from "react-icons/fa6";
 import { CiSearch } from "react-icons/ci";
 
 const Navbar = () => {
+  // const navigate = useNavigate();
+
+  // const handleCartClick = () => {
+  //   navigate('./Cart');
+  // };
   return (
     <div className='w-full h-[10vh] flex items-center bg-blue-600 px-5'>
       <div className='text-white text-2xl font-bold flex gap-2 items-center w-[22vw]'>
@@ -18,7 +25,9 @@ const Navbar = () => {
         <p className='text-white text-lg font-semibold'>OnStore</p>
         <p className='text-white text-lg font-semibold'>Contact</p>
         <p className='text-white text-lg font-semibold'>Profile</p>
-        <div className='text-white text-2xl font-bold'><MdOutlineShoppingCart/></div>
+        <Link href="/Cart" >
+          <div className='text-white text-2xl font-bold'><MdOutlineShoppingCart/></div>
+        </Link>
       </div>
     </div>
   )
