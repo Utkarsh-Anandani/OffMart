@@ -12,7 +12,7 @@ export default function Home() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch('/Routes/product')
+    fetch('http://localhost:3000/api/data')
       .then((res) => res.json())
       .then((data) => {
         console.log(data); // Log the data
