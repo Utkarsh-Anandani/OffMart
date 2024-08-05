@@ -6,6 +6,9 @@ function page() {
   return (
     <>
       <Navbar/>
+      <div>
+        page
+      </div>
     </>
   )
 }

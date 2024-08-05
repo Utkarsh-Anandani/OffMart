@@ -1,13 +1,13 @@
 "use client";
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ProductCard from './components/ProductCard';
 import Image from "next/image";
 import Navbar from "./components/Navbar";
 import Banner from "./components/Banner";
 import ReactDOM from 'react-dom';
 import CategoryCards from "./components/CategoryCard";
-import Cart from "./Cart/page"
+// import Cart from "./Cart/page"
 
 
 export default function Home() {
@@ -23,14 +23,14 @@ export default function Home() {
   }, []);
   return (
     <main className="w-screen min-h-screen">
-      <Router>
-        <div>
+      {/* <Router>
+        <div> */}
           <Navbar />
-          <Routes>
+          {/* <Routes>
              <Route path="/Cart" element={<Cart/>} />
           </Routes>
         </div>   
-      </Router>
+      </Router> */}
       <Banner />
       <div className="mt-20">
         <CategoryCards />
