@@ -1,10 +1,10 @@
-"use client"
-import React, { useEffect, useState } from 'react'
+"use client";
+import React, { useEffect, useState } from 'react';
 import ProductCard from './components/ProductCard';
 import Navbar from "./components/Navbar";
 import Banner from "./components/Banner";
 import CategoryCards from "./components/CategoryCard";
-
+import { Toaster } from 'react-hot-toast';
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -17,9 +17,10 @@ export default function Home() {
         setProducts(data);
       });
   }, []);
+
   return (
     <main className="max-w-screen min-h-screen">
-      <Navbar/>
+      <Navbar />
       <Banner />
       <div className="mt-20">
         <CategoryCards />
@@ -31,8 +32,7 @@ export default function Home() {
           ))}
         </div>
       </div>
-
+      <Toaster />
     </main>
   );
 }
-
