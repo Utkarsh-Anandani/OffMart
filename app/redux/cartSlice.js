@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     items: [{
-        "_id": "66abde66b28ee354737f40e6",  // Ensure _id field is used
+        "_id": "66abde66b28ee354737f40e6",
         "id": 1,
         "title": "Essence Mascara Lash Princess",
         "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
@@ -26,7 +26,7 @@ const initialState = {
             "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png"
         ],
         "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png",
-        "quantity": 1  // Add a quantity field
+        "quantity": 1
     }]
 }
 
@@ -42,7 +42,7 @@ export const cartSlice = createSlice({
                 state.items.push({ ...action.payload, quantity: 1 });
             }
         },
-        remove(state, action) {
+        decrement(state, action) {
             const existingItem = state.items.find(item => item._id === action.payload);
             if (existingItem) {
                 if (existingItem.quantity > 1) {
@@ -51,10 +51,13 @@ export const cartSlice = createSlice({
                     state.items = state.items.filter(item => item._id !== action.payload);
                 }
             }
+        },
+        remove(state, action) {
+            state.items = state.items.filter(item => item._id !== action.payload);
         }
     }
 })
 
-export const { add, remove } = cartSlice.actions;
+export const { add, decrement, remove } = cartSlice.actions;
 
 export default cartSlice.reducer;

@@ -2,7 +2,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import { useSelector, useDispatch } from 'react-redux';
-import { add, remove } from '../redux/cartSlice';
+import { add, decrement, remove } from '../redux/cartSlice';
 
 function CartPage() {
   const content = useSelector((store) => store.cart.items);
@@ -13,6 +13,10 @@ function CartPage() {
   }
 
   const handleDecrement = (_id) => {
+    dispatch(decrement(_id));
+  }
+
+  const handleRemove = (_id) => {
     dispatch(remove(_id));
   }
 
@@ -35,7 +39,7 @@ function CartPage() {
                   <span className="px-3 py-1 border rounded-md">{item.quantity}</span>
                   <button onClick={() => handleIncrement(item)} className="px-3 py-1 bg-gray-300 text-gray-700 rounded-md">+</button>
                 </div>
-                <button onClick={() => handleDecrement(item._id)} className="bg-red-600 px-3 py-2 hover:scale-105 transition-transform rounded-lg text-white font-semibold">
+                <button onClick={() => handleRemove(item._id)} className="bg-red-600 px-3 py-2 hover:scale-105 transition-transform rounded-lg text-white font-semibold">
                   Remove
                 </button>
               </div>
