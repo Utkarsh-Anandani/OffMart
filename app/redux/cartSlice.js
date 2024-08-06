@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     items: [{
+        "_id": "66abde66b28ee354737f40e6",  // Ensure _id field is used
         "id": 1,
         "title": "Essence Mascara Lash Princess",
         "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
@@ -36,7 +37,7 @@ export const cartSlice = createSlice({
             state.items.push(action.payload);
         },
         remove(state, action){
-            return state.items.filter(item=> item._id !== action.payload);
+            state.items = state.items.filter(item => item._id !== action.payload);
         }
     }
 })
