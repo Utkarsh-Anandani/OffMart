@@ -2,14 +2,17 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import { useSelector, useDispatch } from 'react-redux';
-import { remove } from '../redux/cartSlice';
+import { add, remove } from '../redux/cartSlice';
 
 function CartPage() {
   const content = useSelector((store) => store.cart.items);
-
   const dispatch = useDispatch();
 
-  const handleRemove = (_id) => {
+  const handleIncrement = (item) => {
+    dispatch(add(item));
+  }
+
+  const handleDecrement = (_id) => {
     dispatch(remove(_id));
   }
 
@@ -28,11 +31,11 @@ function CartPage() {
               </div>
               <div className="flex items-center space-x-4">
                 <div className="flex items-center space-x-2">
-                  <button className="px-3 py-1 bg-gray-300 text-gray-700 rounded-md">-</button>
-                  <span className="px-3 py-1 border rounded-md">1</span>
-                  <button className="px-3 py-1 bg-gray-300 text-gray-700 rounded-md">+</button>
+                  <button onClick={() => handleDecrement(item._id)} className="px-3 py-1 bg-gray-300 text-gray-700 rounded-md">-</button>
+                  <span className="px-3 py-1 border rounded-md">{item.quantity}</span>
+                  <button onClick={() => handleIncrement(item)} className="px-3 py-1 bg-gray-300 text-gray-700 rounded-md">+</button>
                 </div>
-                <button onClick={() => handleRemove(item._id)} className="bg-red-600 px-3 py-2 hover:scale-105 transition-transform rounded-lg text-white font-semibold">
+                <button onClick={() => handleDecrement(item._id)} className="bg-red-600 px-3 py-2 hover:scale-105 transition-transform rounded-lg text-white font-semibold">
                   Remove
                 </button>
               </div>

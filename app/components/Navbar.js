@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 
 const Navbar = () => {
   const cartItems = useSelector((store) => store.cart.items);
-  const cartCount = cartItems.length;
+  const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
     <div className='w-full h-[10vh] flex items-center bg-blue-600 px-5'>

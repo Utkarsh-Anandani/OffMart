@@ -25,7 +25,8 @@ const initialState = {
         "images": [
             "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png"
         ],
-        "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png"
+        "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png",
+        "quantity": 1  // Add a quantity field
     }]
 }
 
@@ -33,11 +34,23 @@ export const cartSlice = createSlice({
     name: "cart",
     initialState,
     reducers: {
-        add(state, action){
-            state.items.push(action.payload);
+        add(state, action) {
+            const existingItem = state.items.find(item => item._id === action.payload._id);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                state.items.push({ ...action.payload, quantity: 1 });
+            }
         },
-        remove(state, action){
-            state.items = state.items.filter(item => item._id !== action.payload);
+        remove(state, action) {
+            const existingItem = state.items.find(item => item._id === action.payload);
+            if (existingItem) {
+                if (existingItem.quantity > 1) {
+                    existingItem.quantity--;
+                } else {
+                    state.items = state.items.filter(item => item._id !== action.payload);
+                }
+            }
         }
     }
 })
