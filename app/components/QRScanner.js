@@ -1,10 +1,29 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import { Html5Qrcode } from 'html5-qrcode';
+import axios from 'axios';
 
 const QRScanner = () => {
   const [isEnabled, setEnabled] = useState(false);
   const [QRData, setQRData] = useState("");
+  const [productInfo, setProductInfo] = useState([]);
+
+  const getProductInfo = async (_id) => {
+    console.log(_id);
+    try{
+    let response = await axios.post('/api/products', {_id : "66abde66b28ee354737f40e6"}, {
+      headers: {
+        'Content-Type': 'application/json',
+      }});
+    console.log(response.data[0]);
+    }
+    catch(error){
+      console.error('Unable to fetch product:', error);
+    }
+  };
+
+  
+  
 
   useEffect(() => {
     const config = {fps: 5, qrbox: {height: 400, width: 400}};
@@ -29,6 +48,8 @@ const QRScanner = () => {
     else{
       scannerStop();
     }
+
+    getProductInfo("66abde66b28ee354737f40e6");
 
     return () => {
       scannerStop()
