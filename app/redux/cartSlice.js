@@ -33,7 +33,7 @@ export const cartSlice = createSlice({
       if (existingItem) {
         existingItem.quantity++;
       } else {
-        state.items.push({ ...action.payload, quantity: 1 });
+        state.items.unshift({ ...action.payload, quantity: 1 });
       }
       saveState(state.items); // Save to localStorage
     },
