@@ -4,10 +4,9 @@ import QRScanner from '../components/QRScanner'
 
 function page() {
   return (
-    <main>
+    <main className='w-full h-[90vh]'>
         <Navbar/>
         <QRScanner/>
-        
     </main>
   )
 }
