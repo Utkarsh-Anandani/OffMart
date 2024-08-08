@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Html5Qrcode } from 'html5-qrcode';
 import { useDispatch } from 'react-redux';
-import { add } from '../redux/cartSlice';
+import { add } from '../redux/qrCartSlice';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 
@@ -63,7 +63,7 @@ const QRScanner = () => {
 
   
   return (
-    <div className='w-full h-full flex flex-col items-center justify-center pt-10 gap-5 border border-gray-300 bg-slate-100 hover:shadow-lg shadow-md rounded-xl'>
+    <div className='w-[33vw] h-full flex flex-col items-center justify-center pt-10 gap-5 border border-gray-300 bg-slate-100 hover:shadow-lg shadow-md rounded-xl px-[5vw]'>
     <div className='w-[400px] h-[300px] border-2 border-blue-500 text-blue-500 font-semibold text-xl flex items-center justify-center' id='QRScanner'>
       {!isEnabled && <p>Turn on to scan products</p>}
     </div>
