@@ -22,6 +22,7 @@ const ProductCard = ({ product }) => {
         <p className="text-gray-700 text-base">Price: ${product.price}</p>
         <p className="text-gray-700 text-base">Discount: {product.discountPercentage}%</p>
         <p className="text-gray-700 text-base">Rate: {product.rating}/5</p>
+        <p className="text-gray-700 text-base">Eco-Rate: {product.eco}/10</p>
         <div className='absolute bottom-10'>
           <button onClick={() => handleAdd(product)} className='bg-blue-500 hover:scale-105 hover:shadow-sm text-white font-semibold w-28 py-2 rounded-md'>Add to cart</button>
         </div>
