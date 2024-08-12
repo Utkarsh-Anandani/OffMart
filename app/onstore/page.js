@@ -24,12 +24,12 @@ function page() {
         </div>
         </Link>
 
-        <Link href={'/onstore/navigate'}>
+        <Link href={'/onstore/list'}>
         <div className='w-[75vw] h-[20vh] flex items-center gap-14 px-12 bg-blue-100 rounded-3xl border-[3px] border-blue-700 border-spacing-5 text-blue-800 text-[5rem] shadow-lg hover:shadow-xl'>
           <LiaMapMarkedAltSolid/>
           <div className='flex flex-col'>
-          <p className='text-2xl text-blue-700 font-semibold'>Navigate</p>
-          <p className='text-lg text-black font-semibold'>Navigate inside the huge stores of OffMart without being lost, <br/> and get the directions to the product</p>
+          <p className='text-2xl text-blue-700 font-semibold'>Shopping List</p>
+          <p className='text-lg text-black font-semibold'>Create, Edit and Check the shopping list exquisitely created for each offline shopping experience and get real time updates from it.</p>
           </div>
         </div>
         </Link>
