@@ -1,10 +1,20 @@
-import React from 'react'
+"use client"
+import React, { useState } from 'react';
 import Navbar from '@/app/components/Navbar';
-import QRScanner from '@/app/components/QRScanner'
+import QRScanner from '@/app/components/QRScanner';
 import { Toaster } from 'react-hot-toast';
 import QrCartContents from '@/app/components/QrCartContents';
+import ShoppingList from '@/app/components/ShoppingList';
+import Modal from '@/app/components/Modal'; // Import the Modal component
+import { FaShoppingCart } from 'react-icons/fa'; // Import an icon for the button
 
-const page = () => {
+const ScannerPage = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
   return (
     <main className='w-full h-full'>
       <Navbar />
@@ -13,8 +23,21 @@ const page = () => {
         <QrCartContents />
       </div>
       <Toaster />
-    </main>
-  )
-}
 
-export default page
+      {/* Floating Button */}
+      <button
+        className="fixed bottom-8 right-8 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition-all"
+        onClick={toggleModal}
+      >
+        <FaShoppingCart size={24} />
+      </button>
+
+      {/* Modal */}
+      <Modal isOpen={isModalOpen} onClose={toggleModal}>
+        <ShoppingList />
+      </Modal>
+    </main>
+  );
+};
+
+export default ScannerPage;
