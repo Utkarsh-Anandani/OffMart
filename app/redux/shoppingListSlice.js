@@ -29,7 +29,7 @@ export const shoppingListSlice = createSlice({
   initialState,
   reducers: {
     addItem(state, action) {
-      state.items.push(action.payload);
+      state.items.push({ ...action.payload, completed: false });
       saveState(state.items);
     },
     editItem(state, action) {
@@ -45,9 +45,14 @@ export const shoppingListSlice = createSlice({
       state.items = action.payload;
       saveState(state.items);
     },
+    toggleCompleted(state, action) {
+      const index = action.payload;
+      state.items[index].completed = !state.items[index].completed;
+      saveState(state.items);
+    },
   },
 });
 
-export const { addItem, editItem, removeItem, setItems } = shoppingListSlice.actions;
+export const { addItem, editItem, removeItem, setItems, toggleCompleted } = shoppingListSlice.actions;
 
 export default shoppingListSlice.reducer;

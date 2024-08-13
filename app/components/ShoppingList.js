@@ -1,8 +1,8 @@
-"use client"; // Mark this as a client component
+"use client";
 
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addItem, editItem, removeItem } from '../redux/shoppingListSlice'; // Import the actions
+import { addItem, editItem, removeItem, toggleCompleted } from '../redux/shoppingListSlice';
 
 const ShoppingList = () => {
   const items = useSelector((state) => state.shoppingList.items);
@@ -16,7 +16,7 @@ const ShoppingList = () => {
     e.preventDefault();
     if (itemName.trim() === '' || quantity.trim() === '') return;
 
-    const newItem = { itemName, quantity };
+    const newItem = { itemName, quantity, completed: false };
 
     if (isEditing) {
       dispatch(editItem({ index: currentIndex, item: newItem }));
@@ -39,6 +39,10 @@ const ShoppingList = () => {
 
   const handleRemoveItem = (index) => {
     dispatch(removeItem(index));
+  };
+
+  const handleToggleCompleted = (index) => {
+    dispatch(toggleCompleted(index));
   };
 
   return (
@@ -68,13 +72,21 @@ const ShoppingList = () => {
         </button>
       </form>
 
-      <div className="w-full max-w-2xl flex flex-col items-center">
+      <div className="w-full max-w-2xl flex flex-col gap-3  items-center">
         {items.length > 0 ? (
           items.map((item, index) => (
-            <div key={index} className="w-full flex justify-between items-center bg-white p-4 mb-2 rounded-lg shadow-sm">
-              <div>
-                <p className="text-lg font-medium text-gray-800">{item.itemName}</p>
-                <p className="text-sm text-gray-500">Quantity: {item.quantity}</p>
+            <div key={index} className={`w-full flex justify-between items-center p-4 mb-2 rounded-lg shadow-lg ${item.completed ? 'bg-gray-200' : 'bg-white'} transition-colors`}>
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  checked={item.completed}
+                  onChange={() => handleToggleCompleted(index)}
+                  className="mr-4"
+                />
+                <div>
+                  <p className={`text-lg font-medium ${item.completed ? 'line-through text-gray-500' : 'text-gray-800'}`}>{item.itemName}</p>
+                  <p className={`text-sm ${item.completed ? 'text-gray-400' : 'text-gray-500'}`}>Quantity: {item.quantity}</p>
+                </div>
               </div>
               <div className="flex gap-4">
                 <button
