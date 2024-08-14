@@ -1,11 +1,11 @@
 "use client"
 import React, { useState } from 'react';
-import Navbar from '@/app/components/Navbar';
-import QRScanner from '@/app/components/QRScanner';
+import Navbar from '../../components/Navbar';
+import QRScanner from '../../components/QRScanner';
 import { Toaster } from 'react-hot-toast';
-import QrCartContents from '@/app/components/QrCartContents';
-import ShoppingList from '@/app/components/ShoppingList';
-import Modal from '@/app/components/Modal'; // Import the Modal component
+import QrCartContents from '../../components/QrCartContents';
+import ShoppingList from '../../components/ShoppingList';
+import Modal from "../../components/Modal"
 import { FaShoppingCart } from 'react-icons/fa'; // Import an icon for the button
 
 const ScannerPage = () => {

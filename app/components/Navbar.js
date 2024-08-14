@@ -18,8 +18,8 @@ const Navbar = () => {
         <input className='h-[30px] w-2/3 rounded-e-full focus:border focus:outline-none px-2 text-sm' type="text" name='search' />
       </div>
       <div className='w-[33vw] flex justify-between items-center'>
-        <p className='text-white text-lg font-semibold'>About</p>
-        <p className='text-white text-lg font-semibold'>OnStore</p>
+        <Link href={'/ai-assistant'}><p className='text-white text-lg font-semibold'>ChatBot</p></Link>
+        <Link href={'/onstore'}><p className='text-white text-lg font-semibold'>OnStore</p></Link>
         <p className='text-white text-lg font-semibold'>Contact</p>
         <p className='text-white text-lg font-semibold'>Profile</p>
         <CartIcon />

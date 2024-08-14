@@ -1,6 +1,6 @@
 import React from 'react'
-import Navbar from '@/app/components/Navbar'
-import ShoppingList from '@/app/components/ShoppingList'
+import Navbar from "../../components/Navbar"
+import ShoppingList from '../../components/ShoppingList'
 
 const page = () => {
   return (

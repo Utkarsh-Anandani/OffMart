@@ -70,7 +70,6 @@ const QRScanner = () => {
     <button onClick={()=>setEnabled(!isEnabled)} className='text-lg font-semibold text-white bg-blue-600 px-5 py-1 rounded-xl'>
         {isEnabled?"Off":"On"}
       </button>
-      <p>{QRData}</p>
     </div>
   );
 };
