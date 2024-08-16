@@ -6,6 +6,11 @@ import Banner from "./components/Banner";
 import CategoryCards from "./components/CategoryCard";
 import { Toaster } from 'react-hot-toast';
 
+export const metadata = {
+  title: "OffMart",
+  description: "offline shopping experience enhancing site",
+};
+
 export default function Home() {
   const [products, setProducts] = useState([]);
 
