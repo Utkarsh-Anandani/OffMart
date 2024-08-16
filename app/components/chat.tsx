@@ -38,7 +38,7 @@ export function Chat() {
           value={input}
           placeholder={"Type to chat with AI..."}
           onChange={handleInputChange}
-          className="mr-2 border-black"
+          className="mr-2 border-black bg-white text-black"
         />
 
         <Button type="submit" className="bg-blue-500 px-4 py-2 text-white font-semibold">

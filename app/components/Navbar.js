@@ -15,12 +15,11 @@ const Navbar = () => {
       </Link>
       <div className='w-[56vw] flex items-center justify-center gap-[-2px]'>
         <button className='bg-white h-[30px] px-2 py-1 rounded-s-full border-r-2 border-white'><CiSearch /></button>
-        <input className='h-[30px] w-2/3 rounded-e-full focus:border focus:outline-none px-2 text-sm' type="text" name='search' />
+        <input className='h-[30px] w-2/3 rounded-e-full focus:border focus:outline-none px-2 text-sm bg-white' type="text" name='search' />
       </div>
       <div className='w-[33vw] flex justify-between items-center'>
         <Link href={'/ai-assistant'}><p className='text-white text-lg font-semibold'>ChatBot</p></Link>
         <Link href={'/onstore'}><p className='text-white text-lg font-semibold'>OnStore</p></Link>
-        <p className='text-white text-lg font-semibold'>Contact</p>
         <p className='text-white text-lg font-semibold'>Profile</p>
         <CartIcon />
       </div>
