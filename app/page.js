@@ -10,7 +10,7 @@ export default function Home() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/data')
+    fetch('https://off-mart.vercel.app/api/data')
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
