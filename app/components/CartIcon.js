@@ -15,7 +15,7 @@ const CartIcon = () => {
 
     return (
         <div>
-            <Link href="/cart">
+            <Link href="/Cart">
                 <div className='relative text-white text-2xl font-bold'>
                     <MdOutlineShoppingCart />
                     {cartCount > 0 && (
