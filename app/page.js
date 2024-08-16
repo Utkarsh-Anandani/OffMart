@@ -6,11 +6,6 @@ import Banner from "./components/Banner";
 import CategoryCards from "./components/CategoryCard";
 import { Toaster } from 'react-hot-toast';
 
-export const metadata = {
-  title: "OffMart",
-  description: "offline shopping experience enhancing site",
-};
-
 export default function Home() {
   const [products, setProducts] = useState([]);
 
@@ -29,7 +24,7 @@ export default function Home() {
       <div className="mt-20">
         <CategoryCards />
       </div>
-      <div className="mt-20">
+      <div className="mt-24">
         <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
           {products.map((product) => (
             <ProductCard key={product._id} product={product} />
